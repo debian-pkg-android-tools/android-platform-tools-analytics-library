@@ -1,0 +1,33 @@
+Source: android-platform-tools-analytics-library
+Section: java
+Priority: optional
+Maintainer: Android Tools Maintainers <android-tools-devel@lists.alioth.debian.org>
+Uploaders: Kai-Chung Yan <seamlikok@gmail.com>
+Build-Depends: debhelper (>= 10),
+               default-jdk-headless | default-jdk,
+               gradle-debian-helper,
+               libandroid-tools-annotations-java,
+               libandroid-tools-common-java,
+               libguava-java,
+               libprotobuf-java,
+               maven-repo-helper
+Standards-Version: 3.9.8
+Homepage: https://android.googlesource.com/platform/tools/analytics-library
+Vcs-Git: https://anonscm.debian.org/git/android-tools/android-platform-tools-analytics-library.git
+Vcs-Browser: https://anonscm.debian.org/cgit/android-tools/android-platform-tools-analytics-library.git
+
+Package: libandroid-tools-analytics-library-java
+Architecture: all
+Depends: libandroid-tools-annotations-java,
+         libandroid-tools-common-java,
+         libguava-java,
+         libprotobuf-java,
+         ${misc:Depends}
+Description: Libraries for tracking the usage analytics of Android SDK
+ This package provides the following Java libraries of the Android Tools
+ Analytics Library:
+   * inspector.jar: Tools for debugging usage analytics spool files.
+   * protos.jar: Library containing protobufs for usage analytics.
+   * publisher.jar: Tools for reporting usage tracking analytics to Google.
+   * shared.jar: Helper Library for tracking usage analytics.
+   * tracker.jar: Library for tracking usage analytics.

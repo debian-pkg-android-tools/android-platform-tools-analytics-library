@@ -1,0 +1,9 @@
+*~
+/.mh/
+/*.debhelper
+/*.log
+/*.substvars
+/debhelper-build-stamp
+/files
+/lib*-java/
+/tmp/

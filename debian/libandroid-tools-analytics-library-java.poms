@@ -1,0 +1,5 @@
+inspector/build/debian/*.pom --artifact=inspector/build/libs/*.jar --java-lib --usj-name=com.android.tools.analytics-library.inspector
+protos/build/debian/*.pom    --artifact=inspector/build/libs/*.jar --java-lib --usj-name=com.android.tools.analytics-library.protos
+publisher/build/debian/*.pom --artifact=inspector/build/libs/*.jar --java-lib --usj-name=com.android.tools.analytics-library.publisher
+shared/build/debian/*.pom    --artifact=inspector/build/libs/*.jar --java-lib --usj-name=com.android.tools.analytics-library.shared
+tracker/build/debian/*.pom   --artifact=inspector/build/libs/*.jar --java-lib --usj-name=com.android.tools.analytics-library.tracker

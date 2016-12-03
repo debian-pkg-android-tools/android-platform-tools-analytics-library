@@ -1,0 +1,10 @@
+include ':analytics-library:inspector'
+include ':analytics-library:protos'
+include ':analytics-library:shared'
+include ':analytics-library:tracker'
+include ':analytics-library:publisher'
+
+rootProject.projectDir = new File(rootDir, '..')
+project(':analytics-library').children.each { ProjectDescriptor project ->
+  project.projectDir = new File(rootDir, project.name)
+}

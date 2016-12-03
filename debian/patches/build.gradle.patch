@@ -1,0 +1,134 @@
+Description: Patch the build scripts to be used in Debian
+Author: Kai-Chung Yan (殷啟聰)
+Last-Update: 2016-12-04
+--- a/build.gradle
++++ b/build.gradle
+@@ -2,6 +2,6 @@
+     // only configure leaf projects.
+     if (!project.getSubprojects().isEmpty()) return
+ 
+-    apply from: "$rootDir/buildSrc/base/baseJava.gradle"
++    apply plugin: 'java'
+ }
+-
++apply from: 'debian/version.gradle'
+--- a/inspector/build.gradle
++++ b/inspector/build.gradle
+@@ -2,13 +2,13 @@
+ apply plugin: 'jacoco'
+ 
+ dependencies {
+-    compile project(':base:annotations')
++    compile 'com.android.tools:annotations:debian'
+     compile project(':analytics-library:protos')
+     compile project(':analytics-library:shared')
+     compile 'com.google.protobuf:protobuf-java:2.5.0'
+     compile 'com.google.guava:guava:17.0'
+ 
+-    testCompile project(':base:testutils')
++    testCompile 'com.android.tools:testutils:debian'
+     testCompile 'junit:junit:4.12'
+     testCompile 'com.google.truth:truth:0.28'
+ }
+@@ -19,7 +19,3 @@
+ 
+ project.ext.pomName = 'Android Tools Analytics Inspector'
+ project.ext.pomDesc = 'Tool for debugging usage analytics spool files.'
+-
+-apply from: "$rootDir/buildSrc/base/publish.gradle"
+-apply from: "$rootDir/buildSrc/base/bintray.gradle"
+-apply from: "$rootDir/buildSrc/base/javadoc.gradle"
+--- a/publisher/build.gradle
++++ b/publisher/build.gradle
+@@ -2,14 +2,14 @@
+ apply plugin: 'jacoco'
+ 
+ dependencies {
+-    compile project(':base:annotations')
+-    compile project(':base:common')
++    compile 'com.android.tools:annotations:debian'
++    compile 'com.android.tools:common:debian'
+     compile project(':analytics-library:protos')
+     compile project(':analytics-library:shared')
+     compile 'com.google.protobuf:protobuf-java:2.5.0'
+     compile 'com.google.guava:guava:17.0'
+ 
+-    testCompile project(':base:testutils')
++    testCompile 'com.android.tools:testutils:debian'
+     testCompile 'junit:junit:4.12'
+     testCompile 'com.google.truth:truth:0.28'
+     testCompile project(':analytics-library:tracker')
+@@ -21,7 +21,3 @@
+ 
+ project.ext.pomName = 'Android Tools Analytics Publisher'
+ project.ext.pomDesc = 'Library for publishing usage analytics.'
+-
+-apply from: "$rootDir/buildSrc/base/publish.gradle"
+-apply from: "$rootDir/buildSrc/base/bintray.gradle"
+-apply from: "$rootDir/buildSrc/base/javadoc.gradle"
+--- a/protos/build.gradle
++++ b/protos/build.gradle
+@@ -10,7 +10,3 @@
+ 
+ project.ext.pomName = 'Android Tools Analytics Protobufs'
+ project.ext.pomDesc = 'Library containing protobufs for usage analytics.'
+-
+-apply from: "$rootDir/buildSrc/base/publish.gradle"
+-apply from: "$rootDir/buildSrc/base/bintray.gradle"
+-apply from: "$rootDir/buildSrc/base/javadoc.gradle"
+--- a/shared/build.gradle
++++ b/shared/build.gradle
+@@ -3,14 +3,14 @@
+ 
+ dependencies {
+     compile project(':analytics-library:protos')
+-    compile project(':base:annotations')
+-    compile project(':base:common')
++    compile 'com.android.tools:annotations:debian'
++    compile 'com.android.tools:common:debian'
+     compile 'com.google.guava:guava:17.0'
+     compile 'com.google.code.gson:gson:2.2.4'
+ 
+     testCompile 'junit:junit:4.12'
+     testCompile 'com.google.truth:truth:0.28'
+-    testCompile project(':base:testutils')
++    testCompile 'com.android.tools:testutils:debian'
+ }
+ 
+ group = 'com.android.tools.analytics-library'
+@@ -20,6 +20,4 @@
+ project.ext.pomName = 'Android Tools Analytics Shared Library'
+ project.ext.pomDesc = 'Helper Library for tracking usage analytics.'
+ 
+-apply from: "$rootDir/buildSrc/base/publish.gradle"
+-apply from: "$rootDir/buildSrc/base/bintray.gradle"
+-apply from: "$rootDir/buildSrc/base/javadoc.gradle"
++sourceSets.main.java.srcDir "${rootDir}/debian/additionalSrc/java"
+--- a/tracker/build.gradle
++++ b/tracker/build.gradle
+@@ -2,14 +2,14 @@
+ apply plugin: 'jacoco'
+ 
+ dependencies {
+-    compile project(':base:annotations')
+-    compile project(':base:common')
++    compile 'com.android.tools:annotations:debian'
++    compile 'com.android.tools:common:debian'
+     compile project(':analytics-library:protos')
+     compile project(':analytics-library:shared')
+     compile 'com.google.protobuf:protobuf-java:2.5.0'
+     compile 'com.google.guava:guava:17.0'
+ 
+-    testCompile project(':base:testutils')
++    testCompile 'com.android.tools:testutils:debian'
+     testCompile 'junit:junit:4.12'
+     testCompile 'com.google.truth:truth:0.28'
+ }
+@@ -20,7 +20,3 @@
+ 
+ project.ext.pomName = 'Android Tools Analytics Tracker'
+ project.ext.pomDesc = 'Library for tracking usage analytics.'
+-
+-apply from: "$rootDir/buildSrc/base/publish.gradle"
+-apply from: "$rootDir/buildSrc/base/bintray.gradle"
+-apply from: "$rootDir/buildSrc/base/javadoc.gradle"

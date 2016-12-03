@@ -1,0 +1,9 @@
+additionalSrc/java/DateProvider.java
+====================================
+
+This file was copied from [1]. This package was needed when we were updating
+android-platform-tools-base [2] from 2.0.0 to 2.2.2, but its 2.0.0 version does
+not have DateProvider.java, therefore we manually included it.
+
+[1]: https://android.googlesource.com/platform/tools/base/+/gradle_2.2.2/common/src/main/java/com/android/utils/DateProvider.java
+[2]: https://tracker.debian.org/pkg/android-platform-frameworks-base

@@ -1,0 +1,2 @@
+/* From <https://android.googlesource.com/platform/tools/buildSrc/+/master/base/version.gradle> */
+project.ext.baseVersion = '25.2.2'
