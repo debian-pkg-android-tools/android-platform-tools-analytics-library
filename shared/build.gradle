@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+dependencies {
+    compile project(':analytics-library:protos')
+    compile project(':base:annotations')
+    compile project(':base:common')
+    compile 'com.google.guava:guava:17.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.google.truth:truth:0.28'
+    testCompile project(':base:testutils')
+}
+
+group = 'com.android.tools.analytics-library'
+archivesBaseName = 'shared'
+version = rootProject.ext.baseVersion
+
+project.ext.pomName = 'Android Tools Analytics Shared Library'
+project.ext.pomDesc = 'Helper Library for tracking usage analytics.'
+
+apply from: "$rootDir/buildSrc/base/publish.gradle"
+apply from: "$rootDir/buildSrc/base/bintray.gradle"
+apply from: "$rootDir/buildSrc/base/javadoc.gradle"

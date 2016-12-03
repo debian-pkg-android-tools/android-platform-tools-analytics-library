@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+dependencies {
+    compile 'com.google.protobuf:protobuf-java:2.5.0'
+}
+
+group = 'com.android.tools.analytics-library'
+archivesBaseName = 'protos'
+version = rootProject.ext.baseVersion
+
+project.ext.pomName = 'Android Tools Analytics Protobufs'
+project.ext.pomDesc = 'Library containing protobufs for usage analytics.'
+
+apply from: "$rootDir/buildSrc/base/publish.gradle"
+apply from: "$rootDir/buildSrc/base/bintray.gradle"
+apply from: "$rootDir/buildSrc/base/javadoc.gradle"
