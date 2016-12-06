@@ -1,4 +1,4 @@
-android-platform-tools-analytics-library (2.2.2-1) UNRELEASED; urgency=medium
+android-platform-tools-analytics-library (2.2.2-1) unstable; urgency=medium
 
   * Initial release. (Closes: #846855)
 
