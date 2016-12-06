@@ -4,7 +4,6 @@ Upstream-Contact: https://source.android.com/compatibility/contact-us.html
 Source: https://android.googlesource.com/platform/tools/analytics-library
 
 Files: *
-       debian/additionalSrc/java/*
 Copyright: 2005-2016, The Android Open Source Project
 License: Apache-2.0
 
@@ -23,6 +22,10 @@ License: EPL-1.0
 Files: debian/*
 Copyright: 2016, Kai-Chung Yan <seamlikok@gmail.com>
 License: Apache-2.0
+
+Files: debian/additionalSrc/java/*
+Copyright: 2016, The Android Open Source Project
+License: EPL-1.0
 
 License: Apache-2.0
  On Debian systems, the full text of the Apache License, Version 2.0
