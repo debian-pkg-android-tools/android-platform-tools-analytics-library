@@ -1,3 +1,10 @@
+android-platform-tools-analytics-library (2.2.2-2) unstable; urgency=high
+
+  * Fix d/libandroid-tools-analytics-library-java.poms
+  * d/control: Build-Depends on debhelper (>= 10~) which is backport friendly
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Sun, 15 Jan 2017 16:37:51 +0800
+
 android-platform-tools-analytics-library (2.2.2-1) unstable; urgency=medium
 
   * Initial release. (Closes: #846855)
